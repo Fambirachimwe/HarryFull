@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "booking_requests",
+  "info": {
+    "name": "bookingRequest",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "client": {
+      "via": "booking_requests",
+      "plugin": "users-permissions",
+      "collection": "user",
+      "dominant": true
+    },
+    "approved": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

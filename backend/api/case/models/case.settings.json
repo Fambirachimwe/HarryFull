@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cases",
+  "info": {
+    "name": "case",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "date_booked": {
+      "type": "date"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "active",
+        "completed"
+      ],
+      "default": "new"
+    },
+    "documents": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "fees": {
+      "type": "decimal"
+    },
+    "payed": {
+      "type": "boolean",
+      "default": false
+    },
+    "schedules": {
+      "collection": "schedule",
+      "via": "case"
+    },
+    "transaction": {
+      "model": "transaction"
+    },
+    "fees_description": {
+      "type": "richtext"
+    },
+    "lawyers": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "assigned_cases",
+      "dominant": true
+    },
+    "clients": {
+      "plugin": "users-permissions",
+      "collection": "user",
+      "via": "my_cases_clients"
+    }
+  }
+}

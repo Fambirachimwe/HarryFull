@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schedules",
+  "info": {
+    "name": "schedule",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "text"
+    },
+    "case": {
+      "via": "schedules",
+      "model": "case"
+    },
+    "participants": {
+      "via": "schedules",
+      "plugin": "users-permissions",
+      "collection": "user"
+    }
+  }
+}

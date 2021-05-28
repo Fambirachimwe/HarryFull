@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "transaction"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "payed": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
